@@ -1,28 +1,21 @@
-import { useEffect, useState } from 'react'
-
 type TextProps = {
     children: React.ReactNode;
-    small?: boolean;
+    size?: 'regular' | 'small' | 'smaller';
     className?: string;
 }
 
 export default function Text(props: TextProps) {
-    const [classNameString, setClassNameString] = useState<string | undefined>(undefined)
-    const { children, small, className } = props
+    const { children, size, className } = props
 
-    useEffect(() => {
-        const classNameArray = className?.length ? className?.split(' ') : []
-
-        if (small) {
-            classNameArray?.push('small')
-        }
-
-        if (classNameArray?.length > 0) {
-            setClassNameString(classNameArray?.join(' '))
+    const getClasses = () => {
+        if (size === 'smaller') {
+            return `smaller${className ? ' ' + className : ''}`
+        } else if (size === 'small') {
+            return `small${className ? ' ' + className : ''}`
         } else {
-            setClassNameString(undefined)
+            return className
         }
-    }, [small, className])
+    }
 
-    return <p className={classNameString}>{children}</p>
+    return <p className={getClasses()}>{children}</p>
 }

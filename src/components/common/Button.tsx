@@ -2,13 +2,13 @@ type ButtonProps = {
     children: React.ReactNode;
     className?: string;
     variant?: 'primary' | 'secondary' | 'tertiary' | 'stroke' | 'text' | 'cancel';
-    small?: boolean;
+    size?: 'regular' | 'small' | 'smaller';
     disabled?: boolean;
     onClick?: () => void;
 }
 
 export default function Button(props: ButtonProps) {
-    const { children, small, disabled = false, className, variant, onClick } = props
+    const { children, size, disabled = false, className, variant, onClick } = props
 
     const mainStyle = 'py-12 px-16 rounded transition-all duration-200 select-none flex flex-row items-center'
     const primaryVariant = 'bg-primary hover:bg-primary-dark text-grey'
@@ -33,13 +33,23 @@ export default function Button(props: ButtonProps) {
         }
     }
 
+    const getSize = () => {
+        if (size === 'smaller') {
+            return 'text-12'
+        } else if (size === 'small') {
+            return 'text-14'
+        } else {
+            return 'text-16'
+        }
+    }
+
     return (
         <button
             className={`${mainStyle} ${disabled ? disabledVariant : getVariant()}${className && className?.length > 0 ? ' ' + className : ''}`}
             onClick={disabled ? undefined : onClick}
             disabled={disabled}
         >
-            <span className={`font-semibold ${small ? 'text-14' : 'text-16'}`}>{children}</span>
+            <span className={`font-semibold ${getSize()}`}>{children}</span>
         </button>
     )
 }

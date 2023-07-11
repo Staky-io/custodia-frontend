@@ -27,6 +27,11 @@ p.small {
     line-height: 1.125rem;
 }
 
+p.smaller {
+    font-size: 0.75rem;
+    line-height: 0.9375rem;
+}
+
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-fractul), sans-serif;
 }
