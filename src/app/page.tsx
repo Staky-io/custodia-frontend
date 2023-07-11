@@ -1,6 +1,6 @@
 'use client'
 
-import { Heading, Text } from '~/components/common'
+import { Button, Heading, Text } from '~/components/common'
 
 export default function Home() {
     return (
@@ -12,6 +12,10 @@ export default function Home() {
             <Heading level={4}>Heading 4</Heading>
             <Heading level={5}>Heading 5</Heading>
             <Heading level={6}>Heading 6</Heading>
+            <Button
+                variant="primary"
+                onClick={() => console.log('hello')}
+            >Button</Button>
         </main>
     )
 }

@@ -46,12 +46,12 @@ module.exports = {
                 light: '#FFEBAD',
                 dark: '#B78401'
             },
-            success: {
+            error: {
                 DEFAULT: '#E03232',
                 light: '#FBC1AD',
                 dark: '#A11930'
             },
-            error: {
+            success: {
                 DEFAULT: '#00DBB6',
                 light: '#99FFC6',
                 dark: '#009093'
@@ -104,20 +104,20 @@ module.exports = {
             black: '900'
         },
         borderRadius: {
+            DEFAULT: '0.75rem',
             inherit: 'inherit',
-            default: '5.0px',
             full: '9999px',
             0: '0.0px',
-            5: '5.0px',
-            10: '10.0px',
-            15: '15.0px',
-            20: '20.0px',
-            30: '30.0px',
-            40: '40.0px'
+            5: '0.3125rem',
+            10: '0.625rem',
+            15: '0.9375rem',
+            20: '1.25rem',
+            30: '1.875rem',
+            40: '2.5rem'
         },
         // Tailwind Utility : border-, border-t- etc.
         borderWidth: {
-            default: '1px',
+            DEFAULT: '1px',
             0: '0px',
             1: '1px',
             2: '2px',
@@ -309,9 +309,9 @@ module.exports = {
         }),
         // Tailwind Utility : transition-
         transitionProperty: {
+            DEFAULT: 'background-color, color, opacity, transform',
             all: 'all',
             none: 'none',
-            default: 'background-color, color, opacity, transform',
             color: 'color',
             background: 'background-color',
             border: 'border-color, border-opacity',
