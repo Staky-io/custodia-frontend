@@ -1,13 +1,17 @@
+'use client'
+
+import { Heading, Text } from '~/components/common'
+
 export default function Home() {
     return (
         <main>
-            <p>Hello world</p>
-            <h1>Heading 1</h1>
-            <h2>Heading 2</h2>
-            <h3>Heading 3</h3>
-            <h4>Heading 4</h4>
-            <h5>Heading 5</h5>
-            <h6>Heading 6</h6>
+            <Text>Hello world</Text>
+            <Heading>Heading 1</Heading>
+            <Heading level={2}>Heading 2</Heading>
+            <Heading level={3}>Heading 3</Heading>
+            <Heading level={4}>Heading 4</Heading>
+            <Heading level={5}>Heading 5</Heading>
+            <Heading level={6}>Heading 6</Heading>
         </main>
     )
 }
