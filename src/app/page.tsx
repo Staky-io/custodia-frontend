@@ -1,11 +1,19 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { Button, Heading, Input, Text } from '~/components/common'
+import Modal, { ModalRefType } from '~/components/common/Modal'
 
 export default function Home() {
     const [inputValue, setInputValue] = useState('')
     const [inputValue2, setInputValue2] = useState('')
+    const modalRef = useRef<ModalRefType>(null)
+
+    const openModal = () => {
+        if (modalRef.current) {
+            modalRef.current.open()
+        }
+    }
 
     return (
         <main>
@@ -19,7 +27,8 @@ export default function Home() {
 
             <div className='flex flex-row mt-128'>
                 <Button variant="primary" className='mr-10'>Button primary</Button>
-                <Button variant="secondary">Button secondary</Button>
+                <Button variant="secondary" className='mr-10'>Button secondary</Button>
+                <Button variant="tertiary" onClick={openModal}>Open modal</Button>
             </div>
 
             <Input
@@ -36,6 +45,17 @@ export default function Home() {
                 className='mt-10'
                 onChange={(value) => setInputValue2(value)}
             />
+
+            <Modal
+                ref={modalRef}
+                title='Modal title'
+                subtitle='Modal subtitle'
+                closable={true}
+                onOpen={() => console.log('Modal opened')}
+                onClose={() => console.log('Modal closed')}
+            >
+                This is a cool modal !!
+            </Modal>
         </main>
     )
 }

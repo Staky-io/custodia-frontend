@@ -1,4 +1,4 @@
-import IconReceiptLong from './IconReceiptLong'
+import IconClose from './IconClose'
 
 export type IconProps = {
     size?: number
@@ -7,5 +7,5 @@ export type IconProps = {
 }
 
 export {
-    IconReceiptLong
+    IconClose
 }
