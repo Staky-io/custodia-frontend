@@ -3,17 +3,13 @@
 import { useState, useRef } from 'react'
 import { Button, Dropdown, Heading, Input, Text } from '~/components/common'
 import Modal, { ModalRefType } from '~/components/common/Modal'
+import { useModal } from '~/hooks/ui'
 
 export default function Home() {
     const [inputValue, setInputValue] = useState('')
     const [inputValue2, setInputValue2] = useState('')
     const modalRef = useRef<ModalRefType>(null)
-
-    const openModal = () => {
-        if (modalRef.current) {
-            modalRef.current.open()
-        }
-    }
+    const [openModal] = useModal(modalRef)
 
     return (
         <main>

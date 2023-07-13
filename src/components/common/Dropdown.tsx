@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react'
 import { getSize } from '~/components/common'
 import { IconDropdown } from '../icons'
-import useClickOutside from '~/hooks/ui/useClickOutside'
+import { useClickOutside } from '~/hooks/ui'
 
 type DropdownOption = {
     label: string;
