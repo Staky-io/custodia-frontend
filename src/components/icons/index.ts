@@ -1,11 +1,11 @@
 import IconClose from './IconClose'
+import IconDropdown from './IconDropdown'
 
 export type IconProps = {
-    size?: number
-    color?: string
     className?: string
 }
 
 export {
-    IconClose
+    IconClose,
+    IconDropdown
 }

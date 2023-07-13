@@ -1,11 +1,14 @@
-export default function IconClose() {
+import { IconProps } from '~/components/icons'
+
+export default function IconClose(props: IconProps) {
     return (
         <svg
             width='18'
             height='19'
             viewBox='0 0 18 19' fill='none' xmlns='http://www.w3.org/2000/svg'
+            className={props.className}
         >
-            <g clip-path='url(#clip0_32_4722)'>
+            <g clipPath='url(#clip0_32_4722)'>
                 <mask
                     id='mask0_32_4722'
                     style={{maskType:'alpha'}}

@@ -1,4 +1,5 @@
 import Button from './Button'
+import Dropdown from './Dropdown'
 import Heading from './Heading'
 import Input from './Input'
 import Text from './Text'
@@ -15,6 +16,7 @@ export const getSize = (size: string | undefined) => {
 
 export {
     Button,
+    Dropdown,
     Heading,
     Input,
     Text

@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useRef } from 'react'
-import { Button, Heading, Input, Text } from '~/components/common'
+import { Button, Dropdown, Heading, Input, Text } from '~/components/common'
 import Modal, { ModalRefType } from '~/components/common/Modal'
 
 export default function Home() {
@@ -44,6 +44,17 @@ export default function Home() {
                 placeholder='Placeholder with label'
                 className='mt-10'
                 onChange={(value) => setInputValue2(value)}
+            />
+
+            <Dropdown
+                className='mt-10 w-448'
+                placeholder='Select an option'
+                options={[
+                    { label: 'Option 1', value: '1' },
+                    { label: 'Option 2', value: '2' },
+                    { label: 'Option 3', value: '3' }
+                ]}
+                onChange={(value) => console.log(value)}
             />
 
             <Modal
