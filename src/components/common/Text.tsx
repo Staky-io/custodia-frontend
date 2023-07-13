@@ -1,3 +1,5 @@
+import { getSize } from '~/components/common'
+
 type TextProps = {
     children: React.ReactNode;
     size?: 'regular' | 'small' | 'smaller';
@@ -5,17 +7,5 @@ type TextProps = {
 }
 
 export default function Text(props: TextProps) {
-    const { children, size, className } = props
-
-    const getClasses = () => {
-        if (size === 'smaller') {
-            return `smaller${className ? ' ' + className : ''}`
-        } else if (size === 'small') {
-            return `small${className ? ' ' + className : ''}`
-        } else {
-            return className
-        }
-    }
-
-    return <p className={getClasses()}>{children}</p>
+    return <p className={`${getSize(props.size)}${props.className ? ' ' + props.className : ''}`}>{props.children}</p>
 }

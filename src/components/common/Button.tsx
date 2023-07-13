@@ -1,3 +1,5 @@
+import { getSize } from '~/components/common'
+
 type ButtonProps = {
     children: React.ReactNode;
     className?: string;
@@ -33,23 +35,13 @@ export default function Button(props: ButtonProps) {
         }
     }
 
-    const getSize = () => {
-        if (size === 'smaller') {
-            return 'text-12'
-        } else if (size === 'small') {
-            return 'text-14'
-        } else {
-            return 'text-16'
-        }
-    }
-
     return (
         <button
             className={`${mainStyle} ${disabled ? disabledVariant : getVariant()}${className && className?.length > 0 ? ' ' + className : ''}`}
             onClick={disabled ? undefined : onClick}
             disabled={disabled}
         >
-            <span className={`font-semibold ${getSize()}`}>{children}</span>
+            <span className={`font-semibold ${getSize(size)}`}>{children}</span>
         </button>
     )
 }
