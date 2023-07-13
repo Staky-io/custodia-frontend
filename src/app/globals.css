@@ -31,6 +31,19 @@ html, body {
     opacity: 0.6;
 }
 
+@media screen and (max-width: 640px) {
+    .dialog-box {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+
+    .dialog-box::backdrop {
+        opacity: 0.8;
+    }
+}
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
