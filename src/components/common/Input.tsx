@@ -15,7 +15,7 @@ type InputProps = {
 
 export default function Input(props: InputProps) {
     const [isInputFocused, setIsInputFocused] = useState(false)
-    const mainStyle = `transition-all duration-200 bg-black-secondary hover:bg-black-quaternary ${props.label && isInputFocused ? 'pt-16 pb-8' : 'pt-12 pb-12'} px-16 rounded text-grey placeholder:text-grey-secondary outline-none`
+    const mainStyle = `transition-all duration-200 bg-black-secondary hover:bg-black-quaternary ${props.label && (isInputFocused || (props.value && props.value?.length > 0)) ? 'pt-16 pb-8' : 'pt-12 pb-12'} px-16 rounded text-grey placeholder:text-grey-secondary outline-none`
     const disabledVariant = 'placeholder:text-grey-secondary bg-disabled text-grey-secondary cursor-not-allowed user-select-none py-12 px-16 rounded'
 
     const getBorder = () => {
@@ -33,7 +33,7 @@ export default function Input(props: InputProps) {
     }
 
     const getLabelPosition = () => {
-        if (isInputFocused) {
+        if (isInputFocused || (props.value && props.value?.length > 0)) {
             return 'translate-y-0 scale-75 top-0'
         } else {
             if (props.size === 'smaller') {
