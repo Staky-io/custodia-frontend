@@ -1,4 +1,5 @@
 import React, { useRef, forwardRef, useImperativeHandle, useEffect, useState } from 'react'
+import { ModalRefType } from '~/components/Modal'
 import { Text } from '~/components/common'
 import { IconClose } from '~/components/icons'
 
@@ -11,11 +12,6 @@ type ModalProps = {
     titleCentered?: boolean;
     onClose?: () => void;
     onOpen?: () => void;
-}
-
-export type ModalRefType = {
-    open: () => void;
-    close: () => void;
 }
 
 const Modal = forwardRef<ModalRefType, ModalProps>((props, globalRef) => {

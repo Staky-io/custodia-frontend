@@ -44,7 +44,7 @@ export default function Dropdown(props: DropdownProps) {
     return (
         <div
             ref={dropdownRef}
-            className={`relative select-none w-auto${props.className ? ' ' + props.className : ''}`}
+            className={`relative select-none${props.className ? ' ' + props.className : ''}`}
             onClick={() => setIsOpen(!isOpen)}
         >
             <div className={`${getSize(props.size)} ${classNames}`}>

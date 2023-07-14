@@ -2,14 +2,14 @@
 
 import { useState, useRef } from 'react'
 import { Button, Dropdown, Heading, Input, Text } from '~/components/common'
-import Modal, { ModalRefType } from '~/components/common/Modal'
-import { useModal } from '~/hooks/ui'
+import { Modal, useModal, ModalRefType, ModalSlider, ModalSliderRefType } from '~/components/Modal'
 
 export default function Home() {
     const [inputValue, setInputValue] = useState('')
     const [inputValue2, setInputValue2] = useState('')
     const modalRef = useRef<ModalRefType>(null)
-    const [openModal] = useModal(modalRef)
+    const modalSliderRef = useRef<ModalSliderRefType>(null)
+    const [openModal, slideModalPrevious, slideModalNext, resetSlider, slideModalIndex] = useModal(modalRef, modalSliderRef)
 
     return (
         <main>
@@ -62,6 +62,39 @@ export default function Home() {
                 onClose={() => console.log('Modal closed')}
             >
                 This is a cool modal !!
+            </Modal>
+
+            <Modal
+                ref={modalRef}
+                title='Modal title'
+                subtitle={`Modal subtitle - slide ${slideModalIndex+1}/3`}
+                closable={true}
+                onOpen={() => console.log('Modal opened')}
+                onClose={() => {
+                    console.log('Modal closed')
+                    resetSlider()
+                }}
+            >
+                <ModalSlider ref={modalSliderRef}>
+                    <div>
+                        This is a cool swipeable modal !!
+                        <Button variant="primary" className='w-1/2 ml-1/2 mt-20 justify-center' onClick={slideModalNext}>Next</Button>
+                    </div>
+                    <div>
+                        <h6>This is the second step of the modal</h6>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque labore molestiae obcaecati inventore accusantium est aut deserunt sint. Quas saepe mollitia debitis, iste eum et odit quidem dolor iure repellendus.
+                        <div className='flex flex-row items-center justify-between'>
+                            <Button variant="secondary" className='w-1/2 mt-20 justify-center' onClick={slideModalPrevious}>Previous</Button>
+                            <Button variant="primary" className='w-1/2 mt-20 justify-center' onClick={slideModalNext}>Next</Button>
+                        </div>
+                    </div>
+                    <div>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque labore molestiae obcaecati inventore accusantium est aut deserunt sint. Quas saepe mollitia debitis, iste eum et odit quidem dolor iure repellendus.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque labore molestiae obcaecati inventore accusantium est aut deserunt sint. Quas saepe mollitia debitis, iste eum et odit quidem dolor iure repellendus.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque labore molestiae obcaecati inventore accusantium est aut deserunt sint. Quas saepe mollitia debitis, iste eum et odit quidem dolor iure repellendus.
+                        <Button variant="secondary" className='w-1/2 mt-20 justify-center' onClick={slideModalPrevious}>Previous</Button>
+                    </div>
+                </ModalSlider>
             </Modal>
         </main>
     )
