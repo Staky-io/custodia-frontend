@@ -58,7 +58,7 @@ export default function Dropdown(props: DropdownProps) {
                     {props.options.map((item, index) => (
                         <div
                             key={item.value}
-                            className={`px-16 py-12 cursor-pointer hover:bg-black-quaternary ${index === props.options.length - 1 ? 'rounded-b' : ''}`}
+                            className={`px-16 py-12 cursor-pointer bg-black-secondary border-b border-x border-black-quaternary hover:bg-black-quaternary ${index === props.options.length - 1 ? 'rounded-b' : ''}`}
                             onClick={() => {
                                 applyChoice(item)
                                 setIsOpen(false)
