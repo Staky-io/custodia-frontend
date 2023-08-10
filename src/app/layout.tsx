@@ -7,7 +7,7 @@ const sora = Sora({
     weight: ['400', '500', '600'],
     subsets: ['latin'],
     display: 'swap',
-    variable: '--font-sora'
+    variable: '--font-sora',
 })
 
 const fractul = localFont({
@@ -16,26 +16,22 @@ const fractul = localFont({
         {
             path: './assets/fonts/Fractul/Fractul-SemiBold.ttf',
             weight: '500',
-            style: 'normal'
+            style: 'normal',
         },
         {
             path: './assets/fonts/Fractul/Fractul-Bold.ttf',
             weight: '600',
-            style: 'normal'
-        }
-    ]
+            style: 'normal',
+        },
+    ],
 })
 
 export const metadata: Metadata = {
     title: 'Custodia',
-    description: 'Custodia is a multisig wallet built for the ICON blockchain.'
+    description: 'Custodia is a multisig wallet built for the ICON blockchain.',
 }
 
-export default function RootLayout({
-    children
-}: {
-    children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="en">
             <body className={`${sora.variable} ${fractul.variable} font-sans bg-black text-grey`}>{children}</body>

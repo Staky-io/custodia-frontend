@@ -29,7 +29,7 @@ export default function Dropdown(props: DropdownProps) {
         'w-full cursor-pointer transition-all duration-200 bg-black-secondary hover:bg-black-quaternary pt-12 pb-12 px-16',
         'text-grey placeholder:text-grey-secondary outline-none border border-black-quaternary focus:border-primary',
         `${props.label ? 'pt-16 pb-8' : 'pt-12 pb-12'}`,
-        `${isOpen ? 'rounded-b-0 rounded-t' : 'rounded'}`
+        `${isOpen ? 'rounded-b-0 rounded-t' : 'rounded'}`,
     ].join(' ')
 
     const applyChoice = (option: DropdownOption) => {

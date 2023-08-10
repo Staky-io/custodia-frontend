@@ -18,5 +18,5 @@ export type ModalRefType = {
 export {
     Modal,
     ModalSlider,
-    useModal
+    useModal,
 }

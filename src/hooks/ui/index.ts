@@ -3,5 +3,5 @@ import useModal from './useModal'
 
 export {
     useClickOutside,
-    useModal
+    useModal,
 }

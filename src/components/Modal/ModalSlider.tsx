@@ -57,7 +57,7 @@ const ModalSlider = forwardRef<ModalSliderRefType, ModalSliderProps>((props, glo
         next,
         reset,
         refreshHeight,
-        getCurrentIndex: () => currentSlide
+        getCurrentIndex: () => currentSlide,
     }))
 
     return (

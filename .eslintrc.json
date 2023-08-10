@@ -12,19 +12,19 @@
         "node": true
     },
     "rules": {
-        "quotes": ["error", "single"],
-        "semi": ["error", "never"],
-        "comma-dangle": ["error", "never"],
-        "indent": ["error", 4, { "SwitchCase": 1 }],
+        "comma-dangle": ["error", "always-multiline"],
         "eslint linebreak-style": [0, "error", "windows"],
-        "no-undef": 0,
-        "no-trailing-spaces": ["error"],
-        "no-multiple-empty-lines": ["error", { "max": 1, "maxBOF": 1 }],
+        "indent": ["error", 4, { "SwitchCase": 1 }],
         "max-len": ["warn", {
             "code": 250,
             "ignoreComments": true,
             "ignoreStrings": true,
             "ignorePattern": "d=([s]*?)"
-        }]
+        }],
+        "no-multiple-empty-lines": ["error", { "max": 1, "maxBOF": 1 }],
+        "no-trailing-spaces": ["error"],
+        "no-undef": 0,
+        "quotes": ["error", "single"],
+        "semi": ["error", "never"]
     }
 }

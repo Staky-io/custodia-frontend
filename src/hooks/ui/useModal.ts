@@ -6,7 +6,7 @@ export type useModalType = [
     previousModal: () => void,
     nextModal: () => void,
     resetSlider: () => void,
-    sliderIndex: number
+    sliderIndex: number,
 ]
 
 export default function useModal(modalRef: React.RefObject<ModalRefType>, modalSliderRef?: React.RefObject<ModalSliderRefType>): useModalType {

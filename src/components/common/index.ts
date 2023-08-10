@@ -19,5 +19,5 @@ export {
     Dropdown,
     Heading,
     Input,
-    Text
+    Text,
 }

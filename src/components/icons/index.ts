@@ -7,5 +7,5 @@ export type IconProps = {
 
 export {
     IconClose,
-    IconDropdown
+    IconDropdown,
 }
