@@ -1,6 +1,7 @@
-import { useModal } from '~/hooks/ui'
-import Modal from './Modal'
-import ModalSlider from './ModalSlider'
+export { useModal } from '~/hooks/ui'
+
+export { default as Modal } from './Modal'
+export { default as ModalSlider } from './ModalSlider'
 
 export type ModalSliderRefType = {
     previous: () => void;
@@ -13,10 +14,4 @@ export type ModalSliderRefType = {
 export type ModalRefType = {
     open: () => void;
     close: () => void;
-}
-
-export {
-    Modal,
-    ModalSlider,
-    useModal,
 }

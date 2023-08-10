@@ -1,4 +1,4 @@
-import { IconProps } from '~/components/icons'
+import type { IconProps } from '~/components/icons'
 
 export default function IconClose(props: IconProps) {
     return (

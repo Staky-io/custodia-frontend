@@ -1,7 +1,2 @@
-import useClickOutside from './useClickOutside'
-import useModal from './useModal'
-
-export {
-    useClickOutside,
-    useModal,
-}
+export { default as useClickOutside } from './useClickOutside'
+export { default as useModal } from './useModal'

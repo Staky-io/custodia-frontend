@@ -1,8 +1,9 @@
+import type { Size } from '~/components/common'
 import { getSize } from '~/components/common'
 
 type TextProps = {
     children: React.ReactNode;
-    size?: 'regular' | 'small' | 'smaller';
+    size?: Size;
     className?: string;
 }
 

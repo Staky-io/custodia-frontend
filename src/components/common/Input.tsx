@@ -1,11 +1,12 @@
 import { useState } from 'react'
+import type { Size } from '~/components/common'
 import { getSize } from '~/components/common'
 
 type InputProps = {
     label?: boolean;
     placeholder?: string;
     type?: 'text' | 'password' | 'email' | 'number';
-    size?: 'regular' | 'small' | 'smaller';
+    size?: Size;
     value?: string;
     onChange?: (value: string) => void;
     className?: string;
@@ -36,12 +37,14 @@ export default function Input(props: InputProps) {
         if (isInputFocused || (props.value && props.value?.length > 0)) {
             return 'translate-y-0 scale-75 top-0'
         } else {
-            if (props.size === 'smaller') {
-                return 'translate-y-1/2 scale-100 top-4'
-            } else if (props.size === 'small') {
-                return 'translate-y-1/2 scale-100 top-2'
-            } else {
-                return 'translate-y-1/2 scale-100 top-2'
+            switch (props.size) {
+                case 'smaller':
+                    return 'translate-y-1/2 scale-100 top-4'
+                case 'small':
+                    return 'translate-y-1/2 scale-100 top-2'
+                case 'regular':
+                default:
+                    return 'translate-y-1/2 scale-100 top-2'
             }
         }
     }

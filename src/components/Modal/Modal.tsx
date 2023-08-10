@@ -1,5 +1,5 @@
 import React, { useRef, forwardRef, useImperativeHandle, useEffect, useState } from 'react'
-import { ModalRefType } from '~/components/Modal'
+import type { ModalRefType } from '~/components/Modal'
 import { Text } from '~/components/common'
 import { IconClose } from '~/components/icons'
 

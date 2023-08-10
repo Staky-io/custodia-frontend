@@ -1,10 +1,11 @@
+import type { Size } from '~/components/common'
 import { getSize } from '~/components/common'
 
 type ButtonProps = {
     children: React.ReactNode;
     className?: string;
     variant?: 'primary' | 'secondary' | 'tertiary' | 'stroke' | 'text' | 'cancel';
-    size?: 'regular' | 'small' | 'smaller';
+    size?: Size;
     disabled?: boolean;
     onClick?: () => void;
 }

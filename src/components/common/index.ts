@@ -1,23 +1,19 @@
-import Button from './Button'
-import Dropdown from './Dropdown'
-import Heading from './Heading'
-import Input from './Input'
-import Text from './Text'
+export type Size = 'regular' | 'small' | 'smaller'
 
-export const getSize = (size: string | undefined) => {
-    if (size === 'smaller') {
-        return 'text-12'
-    } else if (size === 'small') {
-        return 'text-14'
-    } else {
-        return 'text-16'
+export const getSize = (size?: Size) => {
+    switch (size) {
+        case 'smaller':
+            return 'text-12'
+        case 'small':
+            return 'text-14'
+        case 'regular':
+        default:
+            return 'text-16'
     }
 }
 
-export {
-    Button,
-    Dropdown,
-    Heading,
-    Input,
-    Text,
-}
+export { default as Button } from './Button'
+export { default as Dropdown } from './Dropdown'
+export { default as Heading } from './Heading'
+export { default as Input } from './Input'
+export { default as Text } from './Text'

@@ -1,11 +1,6 @@
-import IconClose from './IconClose'
-import IconDropdown from './IconDropdown'
+import type { SVGAttributes } from 'react'
 
-export type IconProps = {
-    className?: string
-}
+export type IconProps = SVGAttributes<SVGElement>
 
-export {
-    IconClose,
-    IconDropdown,
-}
+export { default as IconClose } from './IconClose'
+export { default as IconDropdown } from './IconDropdown'

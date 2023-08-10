@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
+import type { Size } from '~/components/common'
 import { getSize } from '~/components/common'
 import { IconDropdown } from '../icons'
 import { useClickOutside } from '~/hooks/ui'
@@ -15,7 +16,7 @@ type DropdownProps = {
     label?: boolean;
     value?: string;
     className?: string;
-    size?: 'regular' | 'small' | 'smaller';
+    size?: Size;
     onChange?: (value: string | number) => void;
 }
 
@@ -34,7 +35,7 @@ export default function Dropdown(props: DropdownProps) {
 
     const applyChoice = (option: DropdownOption) => {
         if (props.onChange) {
-            props.onChange(option.value as string)
+            props.onChange(String(option.value))
         }
 
         setSelected(props.options.find(item => item.value === option.value))

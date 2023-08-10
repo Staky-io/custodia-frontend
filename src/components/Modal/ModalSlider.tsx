@@ -1,5 +1,5 @@
 import { Children, forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react'
-import { ModalSliderRefType } from '.'
+import type { ModalSliderRefType } from '.'
 
 type ModalSliderProps = {
     children: React.ReactNode | React.ReactNode[];

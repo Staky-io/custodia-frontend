@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { ModalRefType, ModalSliderRefType } from '~/components/Modal'
+import type { ModalRefType, ModalSliderRefType } from '~/components/Modal'
 
-export type useModalType = [
+export type UseModalType = [
     openModal: () => void,
     previousModal: () => void,
     nextModal: () => void,
@@ -9,7 +9,7 @@ export type useModalType = [
     sliderIndex: number,
 ]
 
-export default function useModal(modalRef: React.RefObject<ModalRefType>, modalSliderRef?: React.RefObject<ModalSliderRefType>): useModalType {
+export default function useModal(modalRef: React.RefObject<ModalRefType>, modalSliderRef?: React.RefObject<ModalSliderRefType>): UseModalType {
     const [sliderIndex, setSliderIndex] = useState<number>(0)
 
     useEffect(() => {
