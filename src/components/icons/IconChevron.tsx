@@ -1,6 +1,6 @@
 import type { IconProps } from '~/components/icons'
 
-export default function IconClose(props: IconProps) {
+export default function IconDropdown(props: IconProps) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -10,7 +10,7 @@ export default function IconClose(props: IconProps) {
             fill="#637592"
             {...props}
         >
-            <path d="M6.0625 15L5 13.9375L8.9375 10L5 6.0625L6.0625 5L10 8.9375L13.9375 5L15 6.0625L11.0625 10L15 13.9375L13.9375 15L10 11.0625L6.0625 15Z" />
+            <path d="M10 13L5 8.05155L6.0625 7L10 10.8969L13.9375 7L15 8.05155L10 13Z" />
         </svg>
     )
 }
