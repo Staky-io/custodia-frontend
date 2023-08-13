@@ -1,11 +1,11 @@
 import classNames from 'classnames'
+import type { HTMLAttributes } from 'react'
 import type { Size } from '~/components/common'
 import { getSize } from '~/components/common'
 
-type TextProps = {
+type TextProps = HTMLAttributes<HTMLParagraphElement> & {
     children: React.ReactNode;
     size?: Size;
-    className?: string;
 }
 
 export default function Text({ children, size, className }: TextProps) {

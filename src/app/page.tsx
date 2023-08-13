@@ -32,14 +32,14 @@ export default function Home() {
                 label={false}
                 placeholder='Classic placeholder'
                 className='mt-60'
-                onChange={(value) => setInputValue(value)}
+                onChange={(value) => setInputValue(value as string)}
             />
             <Input
                 value={inputValue2}
                 label={true}
                 placeholder='Placeholder with label'
                 className='mt-10'
-                onChange={(value) => setInputValue2(value)}
+                onChange={(value) => setInputValue2(value as string)}
             />
 
             <Dropdown

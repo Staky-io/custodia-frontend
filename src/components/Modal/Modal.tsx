@@ -1,12 +1,12 @@
 import classNames from 'classnames'
+import type { HTMLAttributes } from 'react'
 import React, { useRef, forwardRef, useImperativeHandle, useEffect, useState } from 'react'
 import type { ModalRefType } from '~/components/Modal'
 import { Text } from '~/components/common'
 import { IconClose } from '~/components/icons'
 
-type ModalProps = {
+type ModalProps = HTMLAttributes<HTMLDivElement> & {
     children: React.ReactNode;
-    className?: string;
     closable?: boolean;
     title?: string;
     subtitle?: string;

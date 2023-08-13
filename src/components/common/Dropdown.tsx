@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
+import type { HTMLAttributes } from 'react'
 import type { Size } from '~/components/common'
 import { getSize } from '~/components/common'
 import { IconChevron } from '../icons'
@@ -10,13 +11,12 @@ type DropdownOption = {
     value: string | number;
 }
 
-type DropdownProps = {
+type DropdownProps = HTMLAttributes<HTMLDivElement> & {
     options: DropdownOption[];
     placeholder?: string;
     selected?: string | number;
     label?: boolean;
     value?: string;
-    className?: string;
     size?: Size;
     onChange?: (value: string | number) => void;
 }

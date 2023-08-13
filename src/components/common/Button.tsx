@@ -1,14 +1,12 @@
 import classNames from 'classnames'
+import type { ButtonHTMLAttributes } from 'react'
 import type { Size } from '~/components/common'
 import { getSize } from '~/components/common'
 
-type ButtonProps = {
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
     children: React.ReactNode;
-    className?: string;
     variant?: 'primary' | 'secondary' | 'tertiary' | 'stroke' | 'text' | 'cancel';
     size?: Size;
-    disabled?: boolean;
-    onClick?: () => void;
 }
 
 export default function Button({ children, size, disabled = false, className, variant = 'primary', onClick }: ButtonProps) {

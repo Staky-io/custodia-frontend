@@ -1,17 +1,17 @@
 import classNames from 'classnames'
+import type { HTMLAttributes, HTMLInputTypeAttribute, InputHTMLAttributes } from 'react'
 import { useState } from 'react'
 import type { Size } from '~/components/common'
 import { getSize } from '~/components/common'
 
-type InputProps = {
+type InputProps = HTMLAttributes<HTMLDivElement> & {
     label?: boolean;
-    placeholder?: string;
-    type?: 'text' | 'password' | 'email' | 'number';
+    value?: Extract<InputHTMLAttributes<HTMLInputElement>['value'], string | readonly string[]>;
+    type?: Extract<HTMLInputTypeAttribute, 'text' | 'password' | 'email' | 'number'>;
+    disabled?: InputHTMLAttributes<HTMLInputElement>['disabled'];
+    placeholder?: InputHTMLAttributes<HTMLInputElement>['placeholder'];
     size?: Size;
-    value?: string;
     onChange?: (value: string) => void;
-    className?: string;
-    disabled?: boolean;
     error?: string;
 }
 
