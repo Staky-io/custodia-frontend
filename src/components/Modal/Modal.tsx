@@ -1,3 +1,4 @@
+import classNames from 'classnames'
 import React, { useRef, forwardRef, useImperativeHandle, useEffect, useState } from 'react'
 import type { ModalRefType } from '~/components/Modal'
 import { Text } from '~/components/common'
@@ -56,7 +57,11 @@ const Modal = forwardRef<ModalRefType, ModalProps>((props, globalRef) => {
 
     return (
         <dialog className='dialog-box' ref={modalRef}>
-            <div className={`relative s:max-w-512 w-screen-w bg-black-secondary box-border s:rounded-15 m-0 ${(props.title || props.subtitle || !props.closable) ? 'p-20' : 'px-20 pt-40 pb-20'}${props.className ? ' ' + props.className : ''}`}>
+            <div className={classNames(
+                props.className,
+                'relative s:max-w-512 w-screen-w bg-black-secondary box-border s:rounded-15 m-0',
+                (props.title || props.subtitle || !props.closable) ? 'p-20' : 'px-20 pt-40 pb-20',
+            )}>
                 {props.closable && ( // TODO: Replace with a close icon
                     <button className="absolute top-16 right-16 p-4" onClick={close}>
                         <IconClose />

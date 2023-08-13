@@ -1,3 +1,4 @@
+import classNames from 'classnames'
 import type { Size } from '~/components/common'
 import { getSize } from '~/components/common'
 
@@ -7,6 +8,6 @@ type TextProps = {
     className?: string;
 }
 
-export default function Text(props: TextProps) {
-    return <p className={`${getSize(props.size)}${props.className ? ' ' + props.className : ''}`}>{props.children}</p>
+export default function Text({ children, size, className }: TextProps) {
+    return <p className={classNames(className, getSize(size))}>{children}</p>
 }

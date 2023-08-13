@@ -2,13 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-html, body {
+html,
+body {
     font-size: 16px;
     background-color: var(--color-black);
 }
 
 @media screen and (max-width: 640px) {
-    html, body {
+    html,
+    body {
         font-size: 12px;
     }
 }
@@ -16,6 +18,10 @@ html, body {
 * {
     font-family: var(--font-sora), sans-serif;
     color: var(--color-text-grey);
+}
+
+*::selection {
+    @apply bg-black-quaternary text-primary-dark;
 }
 
 .dialog-box {
@@ -27,8 +33,7 @@ html, body {
 }
 
 .dialog-box::backdrop {
-    background-color: #080A0C;
-    opacity: 0.6;
+    @apply bg-black opacity-60;
 }
 
 @media screen and (max-width: 640px) {
@@ -40,7 +45,7 @@ html, body {
     }
 
     .dialog-box::backdrop {
-        opacity: 0.8;
+        @apply opacity-80;
     }
 }
 
@@ -50,7 +55,7 @@ input::-webkit-inner-spin-button {
     margin: 0;
 }
 
-input[type=number] {
+input[type='number'] {
     appearance: textfield;
     -moz-appearance: textfield;
 }
@@ -71,11 +76,20 @@ p.smaller {
     line-height: 0.9375rem;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: var(--font-fractul), sans-serif;
 }
 
-h1, h2, h3, h4, h6 {
+h1,
+h2,
+h3,
+h4,
+h6 {
     font-weight: 600;
 }
 

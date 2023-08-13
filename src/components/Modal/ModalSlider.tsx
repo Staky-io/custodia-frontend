@@ -1,16 +1,16 @@
 import { Children, forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react'
 import type { ModalSliderRefType } from '.'
+import classNames from 'classnames'
 
 type ModalSliderProps = {
     children: React.ReactNode | React.ReactNode[];
 }
 
-const ModalSlider = forwardRef<ModalSliderRefType, ModalSliderProps>((props, globalRef) => {
+const ModalSlider = forwardRef<ModalSliderRefType, ModalSliderProps>(({ children }, globalRef) => {
     const [isReady, setIsReady] = useState(false)
     const [currentSlide, setCurrentSlide] = useState(0)
     const [currentSlideHeight, setCurrentSlideHeight] = useState(0)
     const localRef = useRef<HTMLDivElement>(null)
-    const { children } = props
 
     const previous = () => {
         if (children && currentSlide > 0) {
@@ -23,16 +23,6 @@ const ModalSlider = forwardRef<ModalSliderRefType, ModalSliderProps>((props, glo
         if (children && currentSlide < Children.count(children) - 1) {
             setCurrentSlide(currentSlide + 1)
             setIsReady(true)
-        }
-    }
-
-    const getTransalteX = (index: number) => {
-        if (currentSlide > index) {
-            return '-translate-x-full'
-        } else if (currentSlide < index) {
-            return 'translate-x-full'
-        } else {
-            return 'transalte-x-0'
         }
     }
 
@@ -69,7 +59,14 @@ const ModalSlider = forwardRef<ModalSliderRefType, ModalSliderProps>((props, glo
             {Children.map(children, (child, index) => (
                 <div
                     key={index}
-                    className={`w-full absolute left-0 top-0 transition-transform duration-250 justify-center ${getTransalteX(index)}`}
+                    className={classNames(
+                        'w-full absolute left-0 top-0 transition-transform duration-250 justify-center',
+                        currentSlide === index
+                            ? 'translate-x-0'
+                            : {
+                                '-translate-x-full': currentSlide > index,
+                                'translate-x-full': currentSlide < index,
+                            })}
                 >
                     {child}
                 </div>

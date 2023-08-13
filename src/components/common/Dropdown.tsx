@@ -3,6 +3,7 @@ import type { Size } from '~/components/common'
 import { getSize } from '~/components/common'
 import { IconChevron } from '../icons'
 import { useClickOutside } from '~/hooks/ui'
+import classNames from 'classnames'
 
 type DropdownOption = {
     label: string;
@@ -25,14 +26,6 @@ export default function Dropdown(props: DropdownProps) {
     const [selected, setSelected] = useState<DropdownOption | undefined>(undefined)
     const [isOpen, setIsOpen] = useState(false)
 
-    const classNames = [
-        'flex flex-row items-center justify-between',
-        'w-full cursor-pointer transition-all duration-200 bg-black-secondary hover:bg-black-quaternary pt-12 pb-12 px-16',
-        'text-grey placeholder:text-grey-secondary outline-none border border-black-quaternary focus:border-primary',
-        `${props.label ? 'pt-16 pb-8' : 'pt-12 pb-12'}`,
-        `${isOpen ? 'rounded-b-0 rounded-t' : 'rounded'}`,
-    ].join(' ')
-
     const applyChoice = (option: DropdownOption) => {
         if (props.onChange) {
             props.onChange(String(option.value))
@@ -52,13 +45,20 @@ export default function Dropdown(props: DropdownProps) {
     return (
         <div
             ref={dropdownRef}
-            className={`relative select-none${props.className ? ' ' + props.className : ''}`}
+            className={classNames(props.className, 'relative select-none')}
             onClick={() => setIsOpen(!isOpen)}
         >
-            <div className={`${getSize(props.size)} ${classNames}`}>
+            <div className={classNames(
+                getSize(props.size),
+                'flex flex-row items-center justify-between',
+                'w-full cursor-pointer transition-all duration-200 bg-black-secondary hover:bg-black-quaternary pt-12 pb-12 px-16',
+                'text-grey placeholder:text-grey-secondary outline-none border border-black-quaternary focus:border-primary',
+                props.label ? 'pt-16 pb-8' : 'pt-12 pb-12',
+                isOpen ? 'rounded-b-0 rounded-t' : 'rounded',
+            )}>
                 {props.label && <label className={`absolute select-none pointer-events-none origin-left left-16 text-grey-secondary mb-4 translate-y-0 scale-75 top-0 ${getSize(props.size)}`}>{props.placeholder}</label>}
-                {selected ? selected.label : props.placeholder ? props.placeholder : 'Select an option'}
-                <IconChevron className={`transition-transform duration-200 ${isOpen && 'rotate-180'}`} />
+                {selected ? selected.label : (props.placeholder || 'Select an option')}
+                <IconChevron className={classNames('transition-transform duration-200', { 'rotate-180': isOpen })} />
             </div>
 
             {isOpen && (
@@ -66,10 +66,10 @@ export default function Dropdown(props: DropdownProps) {
                     {props.options.filter((item) => item.value !== selected?.value).map((item, index) => (
                         <div
                             key={item.value}
-                            className={`
-                                px-16 py-12 cursor-pointer bg-black-secondary border-b border-x border-black-quaternary hover:bg-black-quaternary 
-                                ${index === props.options.filter((item) => item.value !== selected?.value).length - 1 ? 'rounded-b' : ''}
-                            `}
+                            className={classNames(
+                                'px-16 py-12 cursor-pointer bg-black-secondary border-b border-x border-black-quaternary hover:bg-black-quaternary',
+                                { 'rounded-b': index === props.options.filter((item) => item.value !== selected?.value).length - 1 },
+                            )}
                             onClick={() => {
                                 applyChoice(item)
                                 setIsOpen(false)

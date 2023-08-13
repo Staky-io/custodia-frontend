@@ -1,3 +1,4 @@
+import classNames from 'classnames'
 import type { Size } from '~/components/common'
 import { getSize } from '~/components/common'
 
@@ -10,35 +11,23 @@ type ButtonProps = {
     onClick?: () => void;
 }
 
-export default function Button(props: ButtonProps) {
-    const { children, size, disabled = false, className, variant, onClick } = props
-
-    const mainStyle = 'py-12 px-16 rounded transition-all duration-200 select-none flex flex-row items-center'
-    const primaryVariant = 'bg-primary hover:bg-primary-dark text-grey'
-    const disabledVariant = 'bg-black-secondary text-disabled cursor-not-allowed'
-
-    const getVariant = () => {
-        switch (variant) {
-            case 'primary':
-                return primaryVariant
-            case 'secondary':
-                return 'bg-black-tertiary hover:bg-black-quaternary text-primary'
-            case 'tertiary':
-                return 'bg-black-tertiary hover:bg-black-quaternary text-grey'
-            case 'stroke':
-                return 'border border-primary hover:border-primary-dark text-primary hover:text-primary-dark'
-            case 'text':
-                return 'text-primary hover:text-primary-dark'
-            case 'cancel':
-                return 'bg-black-tertiary hover:bg-black-quaternar text-error hover:text-error-dark'
-            default:
-                return primaryVariant
-        }
-    }
-
+export default function Button({ children, size, disabled = false, className, variant = 'primary', onClick }: ButtonProps) {
     return (
         <button
-            className={`${mainStyle} ${disabled ? disabledVariant : getVariant()}${className && className?.length > 0 ? ' ' + className : ''}`}
+            className={classNames(
+                className,
+                'py-12 px-16 rounded transition-all duration-200 select-none flex flex-row items-center',
+                disabled
+                    ? 'bg-black-secondary text-disabled cursor-not-allowed'
+                    : {
+                        'bg-primary hover:bg-primary-dark text-grey': variant === 'primary',
+                        'bg-black-tertiary hover:bg-black-quaternary text-primary': variant === 'secondary',
+                        'bg-black-tertiary hover:bg-black-quaternary text-grey': variant === 'tertiary',
+                        'border border-primary hover:border-primary-dark text-primary hover:text-primary-dark': variant === 'stroke',
+                        'text-primary hover:text-primary-dark': variant === 'text',
+                        'bg-black-tertiary hover:bg-black-quaternar text-error hover:text-error-dark': variant === 'cancel',
+                    },
+            )}
             onClick={disabled ? undefined : onClick}
             disabled={disabled}
         >
