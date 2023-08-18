@@ -14,7 +14,7 @@ export default function Button({ children, size, disabled = false, className, va
         <button
             className={classNames(
                 className,
-                'py-12 px-16 rounded transition-all duration-200 select-none flex flex-row items-center',
+                'py-12 px-16 rounded transition-all duration-200 select-none flex flex-row items-center justify-center',
                 disabled
                     ? 'bg-black-secondary text-disabled cursor-not-allowed'
                     : {
