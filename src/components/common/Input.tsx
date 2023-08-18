@@ -15,40 +15,40 @@ type InputProps = HTMLAttributes<HTMLDivElement> & {
     error?: string;
 }
 
-export default function Input(props: InputProps) {
+export default function Input({ className, label, value, type, disabled, placeholder, size = 'regular', onChange, error }: InputProps) {
     const [isInputFocused, setIsInputFocused] = useState(false)
 
     return (
-        <div className={classNames(props.className, 'relative h-auto')}>
-            {props.error && <span className={`text-error mt-4 ${getSize(props.size)}`}>{props.error}</span>}
-            {props.label && <label className={classNames(
+        <div className={classNames(className, 'relative h-auto')}>
+            {error && <span className={`text-error mt-4 ${getSize(size)}`}>{error}</span>}
+            {label && <label className={classNames(
                 'absolute select-none pointer-events-none origin-left left-16 transition-all duration-250 text-grey-secondary mb-4',
-                getSize(props.size),
-                isInputFocused || (props.value && props.value?.length > 0)
+                getSize(size),
+                isInputFocused || (value && value?.length > 0)
                     ? 'translate-y-0 scale-75 top-0'
                     : {
-                        'translate-y-1/2 scale-100 top-2': props.size === 'regular' || props.size === 'small',
-                        'translate-y-1/2 scale-100 top-4': props.size === 'smaller',
+                        'translate-y-1/2 scale-100 top-2': size === 'regular' || size === 'small',
+                        'translate-y-1/2 scale-100 top-4': size === 'smaller',
                     },
-            )}>{props.placeholder}</label>}
+            )}>{placeholder}</label>}
             <input
                 className={classNames(
-                    props.disabled
+                    disabled
                         ? 'placeholder:text-grey-secondary bg-disabled text-grey-secondary cursor-not-allowed user-select-none py-12 px-16 rounded'
                         : [
                             'border transition-all duration-200 bg-black-secondary hover:bg-black-quaternary px-16 rounded text-grey placeholder:text-grey-secondary outline-none',
-                            props.label && (isInputFocused || (props.value && props.value?.length > 0)) ? 'pt-16 pb-8' : 'pt-12 pb-12',
-                            props.error ? 'border-error' : 'border-black-quaternary focus:border-primary',
+                            label && (isInputFocused || (value && value?.length > 0)) ? 'pt-16 pb-8' : 'pt-12 pb-12',
+                            error ? 'border-error' : 'border-black-quaternary focus:border-primary',
                         ],
-                    getSize(props.size),
+                    getSize(size),
                 )}
                 onFocus={() => setIsInputFocused(true)}
                 onBlur={() => setIsInputFocused(false)}
-                placeholder={props.label ? undefined : props.placeholder}
-                type={props.type}
-                value={props.value}
-                onChange={(e) => props.onChange && props.onChange(e.target.value)}
-                disabled={props.disabled}
+                placeholder={label ? undefined : placeholder}
+                type={type}
+                value={value}
+                onChange={(e) => onChange && onChange(e.target.value)}
+                disabled={disabled}
             />
         </div>
     )
