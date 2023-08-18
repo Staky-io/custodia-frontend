@@ -344,9 +344,9 @@ const config = {
             },
             keyframes: {
                 dash: {
-                    '0%': { strokeDasharray: '1, 150', strokeDashoffset: '0' },
-                    '50%': { strokeDasharray: '90, 150', strokeDashoffset: '-35' },
-                    '100%': { strokeDasharray: '90, 150', strokeDashoffset: '-124' },
+                    '0%': { strokeDasharray: '1, 60', strokeDashoffset: '0' },
+                    '50%': { strokeDasharray: '90, 60', strokeDashoffset: '-15' },
+                    '100%': { strokeDasharray: '90, 60', strokeDashoffset: '-50' },
                 },
             },
         },

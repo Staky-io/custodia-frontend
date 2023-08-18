@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import { useCallback, useEffect, useState } from 'react'
 import { Button, FunnelCard, Heading, getSize } from '~/components/common'
-import { IconSpinner, LogoHana, LogoLedger } from '~/components/icons'
+import { UtilSpinner, LogoHana, LogoLedger } from '~/components/icons'
 
 type LoginProps = {
     onConfirm: () => void;
@@ -94,7 +94,7 @@ export default function Login({ onConfirm, onCancel, onReject }: LoginProps) {
                 ))}
             </div>
             <Button variant="primary" disabled={!selectedWallet} onClick={login} className={classNames({ 'cursor-not-allowed': isLoggingIn })}>
-                <span className='grid gap-8 grid-flow-col items-center'>Connect wallet {isLoggingIn && <IconSpinner className='text-grey' />}</span>
+                <span className='grid gap-8 grid-flow-col items-center'>Connect wallet {isLoggingIn && <UtilSpinner className='text-grey' />}</span>
             </Button>
         </FunnelCard>
     )

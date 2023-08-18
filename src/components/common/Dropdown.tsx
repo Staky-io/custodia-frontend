@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import type { HTMLAttributes } from 'react'
 import type { Size } from '~/components/common'
 import { getSize } from '~/components/common'
-import { IconChevron } from '../icons'
+import { IconChevronDown } from '../icons'
 import { useClickOutside } from '~/hooks/ui'
 import classNames from 'classnames'
 
@@ -58,7 +58,7 @@ export default function Dropdown(props: DropdownProps) {
             )}>
                 {props.label && <label className={`absolute select-none pointer-events-none origin-left left-16 text-grey-secondary mb-4 translate-y-0 scale-75 top-0 ${getSize(props.size)}`}>{props.placeholder}</label>}
                 {selected ? selected.label : (props.placeholder || 'Select an option')}
-                <IconChevron className={classNames('transition-transform duration-200', { 'rotate-180': isOpen })} />
+                <IconChevronDown className={classNames('transition-transform duration-200', { 'rotate-180': isOpen })} />
             </div>
 
             {isOpen && (
