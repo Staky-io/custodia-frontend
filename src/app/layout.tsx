@@ -29,6 +29,8 @@ const fractul = localFont({
 export const metadata: Metadata = {
     title: 'Custodia',
     description: 'Custodia is a multisig wallet built for the ICON blockchain.',
+    icons: '/favicon.ico',
+    themeColor: '#3D6EFF',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
