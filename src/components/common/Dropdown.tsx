@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import type { HTMLAttributes } from 'react'
 import type { Size } from '~/components/common'
 import { getSize } from '~/components/common'

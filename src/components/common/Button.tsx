@@ -7,14 +7,25 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
     children: React.ReactNode;
     variant?: 'primary' | 'secondary' | 'tertiary' | 'stroke' | 'text' | 'cancel';
     size?: Size;
+    gap?: 'sm' | 'md' | 'lg';
+    justify?: 'start' | 'center' | 'end';
 }
 
-export default function Button({ children, size, disabled = false, className, variant = 'primary', onClick }: ButtonProps) {
+export default function Button({ children, size, gap = 'md', justify = 'center', disabled = false, className, variant = 'primary', onClick }: ButtonProps) {
     return (
         <button
             className={classNames(
                 className,
-                'py-12 px-16 rounded transition-all duration-200 select-none flex flex-row items-center justify-center',
+                getSize(size),
+                'grid grid-flow-col items-center py-12 px-16 rounded font-semibold transition-all duration-200 select-none',
+                {
+                    'gap-2': gap === 'sm',
+                    'gap-4': gap === 'md',
+                    'gap-8': gap === 'lg',
+                    'justify-start': justify === 'start',
+                    'justify-center': justify === 'center',
+                    'justify-end': justify === 'end',
+                },
                 disabled
                     ? 'bg-black-secondary text-disabled cursor-not-allowed'
                     : {
@@ -29,7 +40,7 @@ export default function Button({ children, size, disabled = false, className, va
             onClick={disabled ? undefined : onClick}
             disabled={disabled}
         >
-            <span className={`font-semibold ${getSize(size)}`}>{children}</span>
+            {children}
         </button>
     )
 }
