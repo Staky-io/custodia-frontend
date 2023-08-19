@@ -1,5 +1,6 @@
 'use client'
 
+import { useRouter } from 'next/navigation'
 import { useRef, useState } from 'react'
 import { Login } from '~/components/Login'
 import { Button, Container, Heading, getSize } from '~/components/common'
@@ -8,9 +9,10 @@ import { LogoCustodia } from '~/components/icons'
 export default function App() {
     const overlayRef = useRef<HTMLDivElement>(null)
     const [canLogIn, setCanLogIn] = useState(false)
+    const { push } = useRouter()
 
     const confirmLogin = () => {
-        // TODO
+        push('/dashboard/home')
     }
 
     const cancelLogin = () => {
